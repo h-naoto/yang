@@ -283,14 +283,12 @@ module bgp-policy {
               reference the set in match conditions";
           }
 
-          leaf-list community-member {
-            type union {
-              type bgp-types:bgp-std-community-type;
-              type bgp-types:bgp-community-regexp-type;
-              type bgp-types:bgp-well-known-community-type;
+          list community {
+            leaf community {
+              type string;
+              description
+                  "member of the community set";
             }
-            description
-              "members of the community set";
           }
         }
       }
@@ -311,15 +309,12 @@ module bgp-policy {
               used to reference the set in match conditions";
           }
 
-          leaf-list ext-community-member {
-            type union {
-              type bgp-types:bgp-ext-community-type;
-              // TODO: is regexp support needed for extended
-              // communities?
-              type bgp-types:bgp-community-regexp-type;
+          list ext-community {
+            leaf ext-community {
+              type string;
+              description
+                  "member of the community set";
             }
-            description
-                "members of the extended community set";
           }
         }
       }
@@ -340,11 +335,12 @@ module bgp-policy {
               the set in match conditions";
           }
 
-          leaf-list as-path-set-member {
-            // TODO: need to refine typedef for AS path expressions
-            type string;
-            description
-                "AS path expression -- list of ASes in the set";
+          list as-path {
+            leaf as-path {
+              type string;
+              description
+                  "AS path expression -- list of ASes in the set";
+            }
           }
         }
       }
