@@ -971,6 +971,12 @@ module bgp {
         BGP neighbor";
       uses bgp-op:bgp-neighbor-queue-counters_state;
     }
+
+    leaf admin-down {
+      type boolean;
+      description
+        "The state was disable by the administrator of the operation";
+    }
   }
 
   augment /bgp:bgp/bgp:neighbors/neighbor/timers/state {
