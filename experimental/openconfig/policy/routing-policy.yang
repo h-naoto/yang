@@ -546,7 +546,7 @@ module routing-policy {
         in the export policy chain is satisfied.";
     }
 
-    leaf-list distribute-policy {
+    leaf-list in-policy {
       type leafref {
         path "/rpol:routing-policy/rpol:policy-definitions/" +
             "rpol:policy-definition/rpol:name";
@@ -558,12 +558,12 @@ module routing-policy {
         for the current other route server clients.";
     }
 
-    leaf default-distribute-policy {
+    leaf default-in-policy {
       type default-policy-type;
       default REJECT-ROUTE;
       description
         "explicitly set a default policy if no policy definition
-        in the distribute policy chain is satisfied.";
+        in the in policy chain is satisfied.";
     }
   }
 
